@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>注册</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/b.css">
+    <link rel="stylesheet" type="text/css" href="../css/head.css">
+</head>
+<body>
+    <div id="head">
+          <img src="../imges/logo1.jpg" id="img-logo">
+           <!-- <a href="wsxinxi.html" class="head-but" >完善信息</a>
+           <a href="index.html" class="head-but">主页</a> -->
+      </div>
+   <div class="zhongjian">
+   <form action="denglu.html" method="post">
+	 &nbsp; &nbsp; &nbsp; 姓名：<input type="text" id="name">
+  	<br>
+  	<br>
+  	 &nbsp; &nbsp;&nbsp;  账号：<input type="text" id="zhanghao">
+  	<br>
+  	<br>
+  	&nbsp; &nbsp; &nbsp; 密码：<input type="password" id="password">
+  	<br>
+  	<br>
+  	&nbsp;&nbsp;确认密码：<input type="password" id="password1">
+  	<br>
+  	<br>
+  	&nbsp;&nbsp;手机号码：<input type="text" id="phone">
+  	</div>
+  	<div class="s">
+    <input type="submit" value="提交" onclick="return denglu1()">
+    <input type="reset" value="重置">
+  	</form>
+   </div>
+   <div id="footer">
+      <img id="img-footer" src="../imges/nefu.jpg"></img>
+      <div id="footer-address">
+          <span class="content">地址：哈尔滨市香坊区和兴路26号 邮编：15540</span>
+          <span class="content">版权虽有*东北林业大学信息与计算机工程学院</span>
+          <span class="content">院长信箱</span>
+          <span class="content">书记信箱</span>
+    </div>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+     var oName = document.getElementById('name');
+      var oPass = document.getElementById('password');
+       var oPass1 = document.getElementById('password1');
+       var oZhangHao=document.getElementById('zhanghao');
+       var oPhone=document.getElementById('phone');
+      oZhangHao.onblur=function(){
+        var s =oZhangHao.value.trim();
+        if (s.length!=0){
+          reg=/^[a-zA-Z]+$/;
+          if(!reg.test(s)){
+            alert("您输入的用户名不合法，用户名应该全是字母！");
+           oZhangHao.value="";
+            }
+
+        }
+        else{
+          alert("用户名不能为空或者空格！");
+        }
+      };
+          oPass.onblur=function () {
+             var s=oPass.value.trim();
+             if(s.length<6||s.length>20){
+              alert("密码应该在6-20之间！");
+              oPass.value="";
+             }
+              reg=/^[a-zA-Z0-9_]+$/;
+              if(!reg.test(s)){
+            alert("您输入的密码不合法，密码应该由字母和数字组成！");
+            oPass.value="";
+          
+              }
+               
+        };
+             oPass1.onblur=function () {
+              console.log(oPass1.value);
+               if(oPass.value!=oPass1.value)
+               {
+                alert("密码不一致！");
+                oPass1.value="";
+              }
+             };
+
+             function denglu (elem) {
+                if(elem.value==""){
+                  alert("内容不能为空!");
+                  return false;
+                }
+                return true;
+             }
+             oName.onblur=function () {
+                denglu(this);
+             };
+             oPhone.onblur=function () {
+               denglu(this);
+             };
+    function denglu1(){
+        if(oName.value==""||oPass.value==""||oPass1.value==""||oZhangHao.value==""||oPhone.value==""){
+          alert("有内容为空！");
+          return false;
+        }
+        return true;
+      }
+      </script>
+        }
+</body>
+</html>
